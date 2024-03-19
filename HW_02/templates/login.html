@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    {{ task }}
+{% endblock %}
+
+{% block content %}
+    <form action="/cookie/" method="post">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+               {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <label>Имя</label>
+        <input type="text" name="name" placeholder="Введите имя">
+        <label>Почта</label>
+        <input type="email" name="mail" placeholder="Введите почту">
+        <input type="submit" value="Нажми меня!">
+    </form>
+{% endblock %}

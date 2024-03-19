@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HW_02</title>
+</head>
+<body>
+    <nav>
+        <h3>Задание</h3>
+        <p> Создать страницу, на которой будет форма для ввода имени и электронной почты, при отправке которой будет
+            создан cookie файл с данными пользователя. Также будет произведено перенаправление на страницу приветствия, 
+            где будет отображаться имя пользователя.<br /> 
+            На странице приветствия должна быть кнопка "Выйти", при нажатии на которую будет удален cookie файл с
+            данными пользователя и произведено перенаправление на страницу ввода имени и электронной почты.</p>
+        {% if session.username %}
+            <h1> Привет, {{ session.username }} </h1>
+<!--            <a href="/logout/">Выход</a>-->
+            <a href="{{ url_for('logout') }}">Выход</a>
+        {% else %}
+<!--            <a href="/login/">Выход</a>-->
+            <a href="{{ url_for('login') }}">Войти</a>
+        {% endif %}
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
