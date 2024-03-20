@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Регистрация</h2>
+<form method="POST" action="{{ url_for('register') }}">
+    {{ form.csrf_token }}
+    {% for field in form if field.name != 'csrf_token' %}
+        <p>
+            {{ field.label }}<br>
+            {{ field }}
+            {% if field.errors %}
+            <ul class="alert alert-danger">
+                {% for error in field. Errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </p>
+    {% endfor %}
+    <p>
+        <input type="submit" value="Зарегистрироваться">
+    </p>
+</form>
+{% endblock %}
