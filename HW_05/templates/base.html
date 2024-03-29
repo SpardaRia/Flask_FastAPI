@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main - Tasks</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <table>
+        <thead>
+        <th>id&emsp;</th>
+        <th>title&emsp;</th>
+        <th>description&emsp;</th>
+        <th>status</th>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+        <tr>
+            <td>{{ task.id }}&emsp;</td>
+            <td>{{ task.title }}&emsp;</td>
+            <td>{{ task.description }}&emsp;</td>
+            <td>{{ task.status }}</td>
+        </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
